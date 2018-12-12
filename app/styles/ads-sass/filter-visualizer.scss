@@ -1,0 +1,73 @@
+
+.filter-operator i {
+  display: none;
+}
+.filter-operator {
+  font-size: 120%;
+  margin: 0 0 0 0;
+  color: gray
+}
+
+#filter-visualizer .alert {
+  display: inline-block;
+  padding:4px 8px;
+  margin:10px;
+}
+
+.filter-operand i {
+  font-size:120%;
+}
+
+.filter-control i {
+  font-size: 190%;
+  margin-left:0px;
+  height:0px;
+  position: relative;
+  top:-1px;
+}
+
+
+.filter-topic-group {
+  display: inline-block;
+  border-radius: $border-radius-large;
+  border: 1px solid darken($gray-lighter, 5%);
+  margin:8px 8px 0 8px;
+  padding: 4px 15px 4px 5px;
+  font-size:14px;
+  transition: box-shadow, 1s;
+  position:relative;
+
+  &:hover {
+    box-shadow : 2px 2px 2px $gray-lighter;
+
+    button.filter-operand-remove {
+      box-shadow : 2px 2px 2px $gray-lighter;
+      background-color: $gray-light;
+    }
+  }
+
+  h5 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    font-weight: bold !important;
+  }
+
+}
+
+button.filter-operand-remove {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border-radius: 100%;
+  color: white;
+  background-color: lighten($gray-light, 8%);
+  border: 1px solid $gray-light;
+  float:right;
+
+
+  &:hover{
+    color: white;
+  }
+
+
+}

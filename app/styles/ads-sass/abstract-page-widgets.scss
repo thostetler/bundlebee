@@ -1,0 +1,310 @@
+
+
+$facebook-color : rgb(59,89,153);
+$twitter-color : rgb(64,153,255);
+$mendeley-color : rgb(60,30,33);
+$sciencewise-color: rgb(179, 27, 27);
+
+
+.facebook-icon {
+  @extend .fa;
+  @extend .fa-2x;
+  color: $facebook-color;
+  &:before {
+    content: $fa-var-facebook-square;
+  }
+}
+
+.mendeley-icon {
+  @extend .fa;
+  @extend .fa-2x;
+  color: $mendeley-color;
+  &:before {
+    content: $fa-var-facebook-square;
+  }
+
+}
+
+
+.twitter-icon {
+  @extend .fa;
+  @extend .fa-2x;
+  color: $twitter-color;
+  &:before {
+    content: $fa-var-twitter-square;
+  }
+
+}
+
+.sciencewise-icon {
+
+  background-color: $sciencewise-color;
+  color: white;
+  font-size: 10px;
+  width: 41px;
+  height: 50px;
+  padding: 2px;
+
+  &:before {
+    content: "Science WISE"
+  }
+
+}
+
+.s-open-access-image {
+  @extend .fa;
+  @extend .fa-lg;
+  &:before {
+    content: $fa-var-unlock-alt;
+  }
+  color: $brand-success;
+}
+
+.s-abstract-title-container {
+
+  padding: 1% 2%;
+}
+.s-abstract-title-bibcode {
+  margin: 0px;
+}
+
+#abstract-metadata li {
+  padding: 1px;
+}
+
+#abstract-metadata ul {
+  padding-left: 0.8%;
+}
+
+.s-abstract-num {
+  font-family: $font-family-sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+}
+
+
+.s-abstract-title-info-row {
+  font-size: 16px;
+}
+
+.abstract-title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+
+.s-abstract-descriptor {
+
+  background-color: $body-bg;
+
+  h4 {
+    font-size: 20px;
+  }
+
+  &:last-of-type {
+    @extend .border-default;
+  }
+
+}
+
+.s-abstract-metadata {
+  padding: 0 6%;
+  font-size : 1.05em;
+
+}
+
+.s-abstract-title {
+  font-size: 25px;
+  margin: 20px 0 20px 0;
+  font-weight: 500;
+}
+
+.s-results-pager {
+  background-color: $body-bg;
+  padding-top: 1%;
+  @include clearfix;
+  border-top: $border-light-default;
+}
+
+
+.s-abstract-content {
+  overflow: hidden;
+}
+
+
+.s-abstract-content {
+  padding: 1% 0;
+
+  .s-large-close {
+    //to prevent widgets from navigating back to main page
+    display: none;
+  }
+}
+
+.s-abstract-page-layout {
+
+  .s-middle-column {
+    padding-bottom: 10%;
+  }
+
+}
+
+
+.s-abstract-metadata {
+
+  dt {
+    color : $gray;
+  }
+}
+
+
+.s-abstract-text {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-top: 18px;
+}
+
+.s-abstract-description {
+  font-weight: 300;
+  font-size : 18px;
+
+}
+
+.s-authors-and-aff {
+  margin: 10px 0;
+
+  ul {
+    margin-bottom: 0px;
+    padding-left : 2px;
+  }
+
+  .list-inline li {
+    padding-left : 2px;
+    padding-right: 2px;
+  }
+}
+
+
+.s-abstract-dl-horizontal{
+
+  dt {
+    display: inline-block;
+    width: 18%;
+
+
+  }
+
+dd {
+  display: inline-block;
+  width: 80%;
+  vertical-align: top;
+  margin-bottom: 12px;
+}
+
+}
+
+
+.s-recommender-widget {
+
+  position: relative;
+
+
+  li {
+    margin: 0 0 8px 6% !important;
+    line-height: 1.2em;
+  }
+
+  .s-author {
+    color: $text-color !important
+
+  }
+}
+
+//components for image grid
+
+.grid-cell {
+  border: 2px solid $gray-lighter;
+  border-radius : 8px;
+  @include transition(box-shadow, .5s, ease-out);
+  position:relative;
+
+}
+
+.grid-cell img {
+
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin:auto;
+}
+
+.s-graphics-grid {
+
+  .s-grid-title{
+    padding-left: 4%;
+  }
+
+  .s-grid-container{
+    padding-left: 3%;
+  }
+
+  p {
+    padding-left: 1%;
+  }
+
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+
+  .grid-cell {
+          display: inline-block;
+          width: 30%;
+          margin-left: 1%;
+          margin-bottom: 20px;
+
+          &:hover {
+            box-shadow : 0px 0px 4px $gray-light;
+          }
+
+    @media(max-width: $screen-sm-max){
+      width: 97%;
+    }
+
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  figure {
+    height: 200px;
+    overflow: auto;
+    position: relative;
+  }
+
+
+  figcaption {
+    text-align: center;
+    margin-bottom: 10px;
+    color: $gray;
+  }
+
+}
+
+.s-graphics-container {
+  cursor: pointer;
+
+
+  p {
+    text-align: center;
+  }
+
+  .grid-cell {
+    margin: 0 4%;
+    padding-top: 18px;
+  }
+
+}

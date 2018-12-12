@@ -1,0 +1,48 @@
+
+.border-default {
+  border : $border-default;
+}
+
+.border-default-light {
+  border : $border-light-default;
+}
+
+.default-box-shadow {
+  box-shadow : 0 0 5px $default-box-shadow-color;
+}
+
+.s-motion-shadow {
+   box-shadow : 0 2px 2px -1px rgba(0, 0, 0, .2);
+  background-color: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #ddd;
+}
+
+.s-ads-card {
+  background-color: $body-bg;
+  border: $border-light-default;
+  @extend .default-box-shadow;
+  border-radius: $border-radius-base;
+}
+
+.secondary-header {
+  font-weight: 500;
+  font-size: 20px;
+  font-variant: small-caps;
+  color: darken($gray-light, 8%);
+  text-transform: lowercase;
+  display: inline-block;
+}
+
+.x-remove {
+  cursor: pointer;
+  color : $gray;
+  @extend .fa;
+  @extend .fa-lg;
+  &:before {
+    content: $fa-var-xing;
+  }
+
+  &:hover {
+    color: $gray-dark;
+  }
+}

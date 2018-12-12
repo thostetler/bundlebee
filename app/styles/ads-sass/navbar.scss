@@ -1,0 +1,305 @@
+
+
+.navbar-brand {
+
+  h1 {
+    display : inline;
+    color: #fff !important;
+    position: relative;
+    top: -7px;
+    left: 6px;
+    font-size: 23px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+    letter-spacing: .1rem;
+
+  }
+
+  img {
+    display : inline-block;
+  }
+}
+
+//otherwise dropdown buttons are mis-styled
+//and won't match the actual links
+.navbar-nav .btn-link {
+  color: $navbar-inverse-color;
+  &:hover, &:focus  {
+    text-decoration: none !important;
+    color: #fff;
+  }
+}
+
+//to vertically align
+ .navbar-nav .dropdown-toggle, .navbar-nav .dropdown{
+    height: $navbar-height;
+  }
+
+
+ .navbar-nav .feedback-button {
+   background-color: $navbar-inverse-bg;
+   border: 2px solid $brand-primary-faded;
+   &:hover {
+   background-color: $brand-primary-faded;
+   }
+ }
+
+//specially for the orcid dropdown
+.nav .s-orcid-dropdown {
+
+  .dropdown-menu>li>a{
+    font-size:$font-size-base;
+  }
+
+  .btn-link {
+    text-align: left;
+  }
+
+  >button{
+    height:$navbar-height;
+  }
+}
+
+.s-orcid-label-container {
+    padding-bottom: 10%;
+    width: 35%;
+    float: right;
+  }
+
+  .s-orcid-title {
+    position: relative;
+    top : 2px;
+    font-size: 16px;
+  }
+
+  .s-orcid-title img {
+    height: 20px;
+    width: auto;
+    position: relative;
+    top:-4px;
+  }
+
+.switch {
+  display: inline-block;
+  position: relative;
+  top: 12px;
+}
+
+
+.s-orcid-dropdown .dropdown-menu {
+    padding: 16px;
+    width: 350px;
+
+    .divider {
+      clear:both;
+    }
+
+    .btn-link {
+      color: $brand-primary;
+      padding-left: 0px;
+    }
+
+    li:hover .btn-link {
+      text-decoration:underline !important;
+    }
+  }
+
+  .s-orcid-mode-label {
+    float:left;
+    margin-top: 17px;
+  }
+
+  .cmn-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+  }
+  .cmn-toggle + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+
+  input.cmn-toggle-round + label {
+    padding: 2px;
+    width: 60px;
+    height: 30px;
+    background-color: $gray-light;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    -o-border-radius: 60px;
+    border-radius: 60px;
+  }
+  input.cmn-toggle-round + label:before, input.cmn-toggle-round + label:after {
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    content: "";
+  }
+  input.cmn-toggle-round + label:before {
+    right: 1px;
+    background-color: $gray-light;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    -o-border-radius: 60px;
+    border-radius: 60px;
+    -webkit-transition: background 0.4s;
+    -moz-transition: background 0.4s;
+    -o-transition: background 0.4s;
+    transition: background 0.4s;
+  }
+  input.cmn-toggle-round + label:after {
+    width: 28px;
+    background-color: #fff;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+    -webkit-box-shadow: 0 2px 5px $gray-dark;
+    -moz-box-shadow: 0 2px 5px $gray-dark;
+    box-shadow: 0 2px 5px $gray-dark;
+    -webkit-transition: margin 0.4s;
+    -moz-transition: margin 0.4s;
+    -o-transition: margin 0.4s;
+    transition: margin 0.4s;
+  }
+  input.cmn-toggle-round:checked + label:before {
+    background-color: $brand-success;
+  }
+  input.cmn-toggle-round:checked + label:after {
+    margin-left: 30px;
+  }
+
+  .s-ads-icon {
+    height: 45px;
+    position: relative;
+    top: -12px;
+    left: 6px;
+  }
+
+.s-user-pill-nav {
+  margin: 0 -15px;
+  padding: 0 1%;
+  position: relative;
+  z-index: $z-index-1;
+  background-color: lighten($navbar-inverse-bg, 5%);
+  color: lighten($navbar-inverse-color, 2%);
+  border-top: 1px solid black;
+
+  li>a{
+    padding: 15px 15px 11px 15px;
+    border-radius: 0;
+    font-size: 18px;
+    background-color: lighten($navbar-inverse-bg, 5%);
+    border-bottom: 4px solid lighten($navbar-inverse-bg, 5%);
+    color:lighten($navbar-inverse-color, 2%);
+
+    &:hover {
+      background-color: lighten($navbar-inverse-bg, 8%);
+      border-bottom: 4px solid lighten($navbar-inverse-bg, 8%);
+
+    }
+
+  }
+
+  >li.active>a{
+    background-color: lighten($navbar-inverse-bg, 10%);
+    &:hover {
+      background-color:lighten($navbar-inverse-bg, 10%);
+      color: lighten($brand-primary-faded, 10%);
+      border-bottom: 4px solid  $brand-primary-faded;;
+
+    }
+    color: lighten($brand-primary-faded, 10%);
+    border-bottom: 4px solid $brand-primary-faded;
+
+  }
+
+}
+
+.s-hourly-warning {
+  color: darken($brand-danger, 20%) !important;
+
+
+  .navbar-brand{
+    color: darken($brand-danger, 20%) !important;
+    padding : 12.5px 15px;
+    font-weight: bold;
+    height: 30px;
+  }
+
+  padding: 2%;
+  width: 418px;
+  border-left: 8px solid darken($brand-danger, 10%);
+  background-color: lighten($brand-danger, 20%);
+
+}
+
+
+.s-beta {
+  position: relative;
+  left: 6%;
+  top: -8%;
+  font-size: 31px;
+  color: white;
+  font-weight: 300;
+}
+
+button[data-target="#feedback-modal"]{
+  box-shadow: none;
+  margin-top: 10px;
+  margin-right: 20px;
+
+  &:hover {
+    box-shadow: none;
+  }
+
+}
+
+#feedback-modal {
+
+  .modal-content {
+    margin-top: 15%;
+  }
+
+  .modal-body {
+    padding: 20px 20px 0 20px;
+  }
+
+  input,textarea {
+    //why is this necessary??
+    font-weight: normal;
+  }
+
+  label:last-of-type{
+    width:100%;
+    textarea {
+    width:90%;
+    }
+  }
+
+  .form-group.half-width{
+    width: 49%;
+    display:inline-block;
+    label {
+      width: 84%;
+    }
+  }
+
+
+}
+
+.about-page-icon {
+  font-size: 22px;
+}

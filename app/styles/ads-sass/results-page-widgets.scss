@@ -1,0 +1,140 @@
+.s-results-control-row-container {
+  padding: 0.2% 0;
+  border-bottom: $border-default;
+  background-color: $body-bg;
+  box-shadow: 0 3px 4px $default-box-shadow-color;
+
+  @extend .clearfix;
+}
+.s-results-control-row {
+  padding-bottom: 1%;
+  background-color: $darker-background;
+  div[data-widget="ExportDropdown"] {
+    margin-right: 4%;
+  }
+  .s-sort-widget {
+    position: relative;
+    left: -3%;
+  }
+  .s-results-action-buttons {
+    padding: 10px 0;
+    > .btn {
+      font-size: 16px;
+    }
+  }
+  div.dropdown-menu {
+    width: 200px;
+  }
+}
+.export-start-val {
+  display: inline;
+  width: 30%;
+
+  @extend .form-control;
+  @extend .input-sm;
+}
+.export-end-val {
+  display: inline;
+  width: 30%;
+
+  @extend .form-control;
+  @extend .input-sm;
+}
+.s-sort-widget .sort-label {
+  position: relative;
+  top: 0.3rem;
+  display: inline;
+  letter-spacing: 0.15rem;
+  font-weight: 500;
+  font-size: 2.2rem;
+}
+.s-dropdown-widget {
+  .s-divider-bottom {
+    padding: 10px;
+  }
+  .export-start-val {
+    display: inline;
+    width: 30%;
+
+    @extend .form-control;
+    @extend .input-sm;
+  }
+  .export-end-val {
+    display: inline;
+    width: 30%;
+
+    @extend .form-control;
+    @extend .input-sm;
+  }
+}
+.s-results-links {
+  width: 100%;
+}
+.s-query-info-widget {
+  .currently-selected,
+  .num-found {
+    padding: 2px 0;
+    font-size: 18px;
+  }
+  .s-library-area {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 0 solid transparent;
+    background-color: white;
+
+    @extend .s-ads-card;
+  }
+  #library-console,
+  .s-library-add-title {
+    padding: 10px;
+  }
+  .s-library-add-title {
+    background: $brand-info;
+    transition: background .4s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-weight: 300;
+    font-size: 16px;
+    cursor: pointer;
+    i.fa-caret-down {
+      position: relative;
+      top: 4px;
+      left: -8px;
+      float: right;
+      font-size: 1.5em;
+    }
+    &:hover {
+      background: darken($brand-info, 5%);
+    }
+  }
+  .s-filter-div {
+    font-weight: 300;
+    font-size: $font-size-base;
+  }
+  .clear-selected {
+    .fa-times {
+      @extend .text-danger;
+    }
+  }
+  .page-bulk-add {
+    position: relative;
+    top: -3px;
+    .fa-plus {
+      @extend .text-success;
+    }
+  }
+  .s-all-vs-selected {
+    display: inline;
+    margin-left: 10px;
+    width: 160px;
+  }
+  .s-library-select {
+    display: inline;
+    width: 70%;
+    max-width: 166px;
+  }
+}
+
+.s-empty-view-msg {
+  padding: 0 10% 0 10%;
+}

@@ -1,0 +1,90 @@
+
+//allow for semantic headings without changing the look of the button
+.btn {
+  h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+    font-weight: normal;
+    font-size: 1em;
+    padding: 0;
+    display: inline;
+  }
+}
+
+
+.s-message-control-row {
+  text-align: center;
+
+  pre {
+    text-align: left;
+    height: 100px;
+  }
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+div[data-widget="AlertsWidget"] {
+
+  .alert {
+    margin: 0 -15px 0 -15px;
+    margin-bottom: 0 !important;
+    border-radius: 0;
+    font-size: 18px;
+    border: 0px solid transparent !important;
+    padding: 25px;
+    padding-left: 45px;
+    animation : fade-in 1s;
+    position: relative;
+  }
+
+  .alert>div {
+    display:inline-block;
+    vertical-align: top;
+  }
+
+  .alert>div:first-of-type {
+    width: 80%;
+  }
+  .alert>div:nth-of-type(2) {
+    width: 19%;
+  }
+
+}
+
+.s-tabs-widget {
+
+  .nav-tabs>li>a {
+    padding: 5px 10px 10px 10px !important;
+    color: $text-color;
+  }
+
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    h5 {
+      color: $brand-primary-faded;
+    }
+    border: $border-light-default;
+    border-bottom: none;
+    cursor: default;
+
+  }
+
+  .tab-content {
+    @extend .s-ads-card;
+    box-shadow :  0 3px 5px $default-box-shadow-color;
+    border-top : none;
+    position: relative;
+    top: -10px;
+    border-bottom-left-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    background-color: $body-bg;
+  }
+
+}
+
+#backToTopBtn {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+}

@@ -1,0 +1,50 @@
+.ui-slider-handle {
+  background-image : linear-gradient(to bottom, lighten($brand-primary-faded, 20%) 0%, lighten($brand-primary-faded, 20%) 50%, lighten($brand-primary-faded, 10%) 50%, lighten($brand-primary-faded, 10%) 100% ) !important;
+}
+
+
+.ui-slider-range {
+   background : #fff !important;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  _width: 160px;
+  padding: 2px 0;
+  margin: 2px 0 0 0;
+  list-style: none;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  @extend .s-ads-card;
+
+  .ui-menu-item > a.ui-corner-all {
+    display: block;
+    clear: both;
+    line-height: 18px;
+    padding: 5px 15px;
+    color: #555555;
+    white-space: nowrap;
+    font-size: 15px;
+    font-family: $font-family-sans-serif;
+    border-radius: 0;
+
+    &.ui-state-hover, &.ui-state-active {
+      color: #ffffff;
+      text-decoration: none;
+      background-color: #0088cc;
+      border-radius: 0px;
+      background-image: none;
+    }
+  }
+
+  .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: 1px solid transparent;
+    background: lighten($brand-primary-faded, 33%);
+  }
+}

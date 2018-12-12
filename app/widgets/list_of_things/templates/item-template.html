@@ -1,0 +1,280 @@
+<div class="col-sm-12 {{#if chosen}} chosen {{/if}}">
+<div class="row s-top-row">
+    <div class="col-xs-1 s-checkbox-col s-top-row-col">
+        <label>
+            {{indexToShow}}
+            <input type="checkbox" value={{identifier}} name="identifier" {{#if chosen}} checked {{/if}}>
+        </label>
+    </div>
+
+    <div class="hidden-xs hidden-sm col-md-3 s-top-row-col identifier s-identifier">
+        <a href="#abs/{{encodedIdentifier}}/abstract" aria-label="bibcode" class="abs-redirect-link">
+            {{identifier}}
+        </a>
+    </div>
+    <div class="col-xs-2 col-md-2 col-md-offset-0 s-top-row-col" aria-label="date published">
+        {{formattedDate}}
+    </div>
+    <div class="col-xs-3 col-sm-4 col-md-2 s-top-row-col">
+        {{#if citation_count }}
+        <a href="#abs/{{encodedIdentifier}}/citations" title="citation count" class="citations-redirect-link">cited: {{citation_count}}</a>
+        {{/if}}
+    </div>
+    <div class="col-xs-4 col-sm-4 pull-right">
+        <div class="s-results-links">
+
+            {{#if links}}
+
+                <div class="letter-icon s-letter-icon">
+
+                    {{#if links.text}}
+
+                        <a href="{{links.text.[0].url}}" target="_blank" rel="noopener" class="btn-link active-link s-active-link" aria-disabled="false">
+                            <i class="s-text-icon" aria-label="quick access to full text links"></i>
+                        </a>
+                        <ul class="hidden list-unstyled link-details s-link-details" role="menu">
+
+                            {{#each links.text}}
+                            <li><a {{#if this.openAccess}} class="s-open-access"{{/if}} href="{{this.url}}"
+                                target="_blank" rel="noopener">{{this.name}}</a></li>
+                            {{/each}}
+                        </ul>
+
+                    {{else}}
+
+                    <div title="full text links (none)">
+                        <a href="#" class="btn-link disabled" aria-disabled="true" aria-label="full text links">
+                            <i class="s-text-icon" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    {{/if}}
+
+            </div>
+
+            <div class="letter-icon s-letter-icon">
+
+                {{#if links.list}}
+
+                <a href="{{links.list.[0].url}}" class="btn-link active-link s-active-link" aria-disabled="false">
+                    <i class="s-list-icon" aria-label="quick links to lists of references, citations and more"></i>
+                </a>
+
+                <ul class="hidden list-unstyled list-unstyled link-details s-link-details" role="menu">
+
+                    {{#each links.list}}
+                    <li><a href="{{this.url}}">{{this.name}}</a></li>
+                    {{/each}}
+                </ul>
+
+                {{else}}
+                <div title="references, citations (none)">
+                    <a href="#" class="btn-link disabled" aria-disabled="true" aria-label="quick links to lists of references, citations etc">
+                        <i class="s-list-icon" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+
+                {{/if}}
+
+            </div>
+            <div class="letter-icon s-letter-icon">
+
+                {{#if links.data}}
+
+                <a href="{{links.data.[0].url}}" target="_blank" rel="noopener" class="btn-link active-link s-active-link" aria-disabled="false">
+                    <i class="s-data-icon" aria-label="quick links to data associated with this article"></i>
+                </a>
+
+                <ul class="hidden list-unstyled link-details s-link-details" role="menu">
+
+                    {{#each links.data}}
+                    <li><a {{#if this.openAccess}} class="s-open-access"{{/if}} href="{{this.url}}" target="_blank" rel="noopener"
+                        >{{this.name}}</a></li>
+                    {{/each}}
+                </ul>
+
+                {{else}}
+                    <div title="data products (none)">
+                        <a href="#" class="btn-link disabled" aria-disabled="true" aria-label="quick links to data associated with this article">
+                            <i class="s-data-icon" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                {{/if}}
+
+            </div>
+            {{/if}}
+      </div>
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-xs-10 col-xs-offset-1">
+        {{#if isOrcidWidget}}
+            {{#if encodedIdentifier}}
+                <a href="#abs/{{encodedIdentifier}}/abstract" class="abs-redirect-link">
+                    <h3 class="s-results-title">{{{title}}}</h3>
+                </a>
+            {{else}}
+                <h3 class="s-results-title">{{{title}}}</h3>
+            {{/if}}
+        {{else}}
+            <a href="#abs/{{encodedIdentifier}}/abstract" class="abs-redirect-link">
+                <h3 class="s-results-title">{{{title}}}</h3>
+            </a>
+        {{/if}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+
+        {{#unless isOrcidWidget}}
+            {{#if authorFormatted}}
+            <ul class="list-inline just-authors s-results-authors less-authors" aria-label="authors">
+                {{#each authorFormatted}}
+                    <li class="article-author">{{this}}</li>
+                {{/each}}
+
+                {{#if extraAuthors}}
+                <li>
+                    <a href="#" id="show-all-authors">
+                        <em>and {{extraAuthors}} more</em>
+                    </a>
+                </li>
+                {{/if}}
+            </ul>
+
+            <ul class="list-inline just-authors s-results-authors all-authors hidden" aria-label="authors">
+                {{#each allAuthorFormatted}}
+                    <li class="article-author">{{this}}</li>
+                {{/each}}
+                <li>
+                    <a href="#" id="show-less-authors">
+                        <em>show less</em>
+                    </a>
+                </li>
+            </ul>
+            {{else}}
+                <span class="text-faded">no author information available</span>
+            {{/if}}
+        {{/unless}}
+
+
+    </div>
+
+</div>
+
+ {{#if orcid}}
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="s-results-orcid-container">
+
+            {{#if orcid.pending}}
+            <button class="btn btn-default btn-sm s-orcid-loading" aria-disabled="true">
+                <i class="fa fa-lg fa-spinner fa-pulse"></i> Working...
+            </button>
+            {{else}}
+            <!-- if provenance, it has been added by us or someone else-->
+            {{#if orcid.provenance}}
+
+            <div class="{{#if orcid.error}}alert-danger{{else}}alert-success{{/if}} s-orcid-alert s-orcid-provenance-{{orcid.provenance}}" role="alert">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"
+                            aria-expanded="false" {{#if orcid.error}}title="{{orcid.error}}"{{/if}}>
+                        <img src="../../styles/img/orcid-active.svg" alt="orcid logo active" class="s-orcid-img"/> Actions <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        {{#each orcid.actions}}
+                        <li>
+
+                            <a class="orcid-action {{this.action}}" data-action="{{this.action}}"
+                               title="{{this.caption}}">
+                                <i class="
+                            {{#compare this.action 'orcid-update'}}
+                            icon-reload-c
+                            {{/compare}}
+                            {{#compare this.action 'orcid-delete'}}
+                            icon-clear-c
+                            {{/compare}}
+                            "></i>
+                                {{this.title}}</a>
+                            {{/each}}
+                        </li>
+                    </ul>
+                </div>
+
+                {{#if source_name}}<span class="s-orcid-source">({{source_name}})</span>{{/if}}
+                <span class="text-success s-orcid-success pull-right"> <i class="icon-success"></i>&nbsp;In ORCID&nbsp;</span>
+
+            </div>
+
+
+
+            {{else}}<!-- add this paper to ORCID-->
+
+            {{#if bibcode}}
+            <button class="btn {{#if orcid.error}}btn-danger{{else}}btn-default{{/if}} btn-sm orcid-action {{orcid.actions.add.action}}"  data-action="{{orcid.actions.add.action}}" {{#if orcid.error}}title="{{orcid.error}}"{{/if}}>
+               <img src="../../styles/img/orcid-inactive.svg" alt="orcid logo inactive" class="s-orcid-img" title="{{orcid.actions.add.caption}}"/>
+                Claim in ORCID
+            </button>
+            {{else}}
+            <div class="panel panel-default" style="box-shadow: none">
+                <div class="panel-body">
+                    <img src="../../styles/img/orcid-inactive.svg" alt="orcid logo inactive" class="s-orcid-img" title=""/>
+                    Record not known to ADS
+                </div>
+            </div>
+            {{/if}}
+
+
+            {{/if}}<!--orcid.provenance -->
+            {{/if}} <!--orcid.pending-->
+    </div>
+
+</div>
+{{/if}}
+
+    <div class="row highlight-row">
+        {{#if showHighlights}}
+        <div class="col-xs-10 col-xs-offset-1 s-more-info">
+                {{#if highlights}}
+                    <h4 class="sr-only">Search Highlights</h4>
+                    <ul aria-label="search snippets" class="s-search-snippets">
+                        {{#each highlights}}
+                        <li>{{{this}}}</li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                  <span class="text-muted"><i class="fa fa-spinner fa-pulse"></i> Loading Highlights...</span>
+                {{/if}}
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="row abstract-row">
+        {{#if showAbstract}}
+        <div class="col-xs-9 col-xs-offset-1 s-more-info">
+                {{#if abstract}}
+                    <h4 aria-label="read full abstract below"><a href="#abs/{{identifier}}">Abstract</a></h4>
+                    {{#if shortAbstract}}
+
+                    <div class="short-abstract" aria-label="a truncated version of the abstract">
+                        {{{shortAbstract}}}
+                        &nbsp; <button class="btn btn-xs btn-default show-full-abstract">more</button>
+                    </div>
+                    <div class="full-abstract hidden">
+                        {{{abstract}}}
+                        &nbsp; <button class="btn btn-xs btn-default hide-full-abstract">less</button>
+                    </div>
+                    {{else}}
+                        <!--the abstract is short enough to be shown all at once-->
+                        {{{abstract}}}
+                    {{/if}}
+                {{/if}}
+        </div>
+     {{/if}}
+    </div>
+</div>

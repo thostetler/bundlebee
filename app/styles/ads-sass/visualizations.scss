@@ -1,0 +1,752 @@
+/*
+
+General
+
+*/
+/********************
+ * SVG CSS
+ */
+
+
+svg {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Trying to get SVG to act like a greedy block in all browsers */
+  display: block;
+  width:100%;
+  height:100%;
+}
+
+svg .title {
+  font: bold 14px Arial;
+}
+/*
+
+WordCloud
+
+*/
+
+
+// for the slider
+.s-wordcloud-tick-container {
+
+  margin-top:-5px;
+  font-size:8px;
+}
+
+.s-wordcloud-text {
+
+  fill: #00006B;
+  font-weight: 400;
+  text-anchor: middle;
+  transition : all 1s;
+
+  &:hover {
+    cursor: pointer;
+
+  }
+}
+
+.s-vis-select-list .close {
+  line-height: 0;
+  margin-top: 8px;
+}
+
+.s-wordcloud-container {
+
+  .selected {
+    fill: $brand-warning !important;
+  }
+}
+
+
+.s-wordcloud-slider-labels {
+  font-size: .8em;
+}
+
+.s-wordcloud-help-container {
+  padding-bottom: 20px;
+  @extend .clearfix;
+}
+
+.s-wordcloud-widget {
+  margin-top: 30px;
+  font-weight: 300;
+}
+
+.s-vis-item-format {
+
+  background: $gray-lightest;
+  padding: 15px 15px;
+  margin-bottom: 20px;
+
+}
+
+.s-vis-select-list {
+  list-style: none;
+  padding-left: 0px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/*
+Year, Citation and Reference Graphs
+*/
+
+
+.s-view-metrics-button-container {
+ @extend .pull-right;
+  margin-right: 10px;
+}
+
+.change-scale {
+  label {
+    display: inline-block;
+    width: 20%
+  }
+}
+
+.y-axis-title {
+  position: relative;
+  font-style: italic;
+  top: -263px;
+  left: -54%;
+  font-weight: bold;
+  transform : rotate(270);
+
+}
+
+.x-axis-title {
+
+  position: relative;
+  font-style: italic;
+  top: -38px;
+  font-weight: bold;
+  left: 41%;
+  font-weight: bold;
+
+}
+
+.h-index-x-axis-title {
+
+  left: 77px;
+  top: -57px;
+
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.s-slider {
+  top: -25px;
+  width: 90%;
+  margin: auto;
+}
+
+.line {
+  fill: none;
+  stroke: mix($refereed, $nonrefereed, 30%);
+  stroke-width: 2px;
+}
+
+.h-index {
+  fill: none;
+  stroke: $gray;
+  stroke-width: 1px;
+
+}
+
+.s-chart .refereed {
+  fill: $refereed !important;
+}
+
+.s-chart .bar, .s-chart .dot {
+  fill: $nonrefereed !important;
+}
+
+.s-chart .x-axis .active text {
+  fill: lighten($brand-primary, 10%);
+}
+
+.s-chart {
+  pointer-events: all;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#year-graph .tick line {
+  display: none;
+}
+
+#year-graph .domain {
+  display: none;
+}
+
+#year-graph .y-axis text {
+  text-anchor: start;
+}
+
+#citation-graph .chart {
+  min-height: 240px;
+}
+
+.axis text {
+  font-size: 5px;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  stroke-width:.5px;
+  shape-rendering: crispEdges;
+}
+
+.s-label {
+  font: 14px sans-serif;
+  text-anchor: middle;
+  font-weight: 300;
+}
+
+.show-slider-data-first, .show-slider-data-second {
+  @extend .form-control;
+  @extend .input-sm;
+  display: inline;
+  width: 55px;
+}
+
+.slider-data {
+  position: relative;
+  top: -15px;
+  left: 12px;
+}
+
+.ui-slider {
+  margin-bottom: 5px !important;
+}
+
+.logic-container label {
+  display: block
+}
+
+.s-legend-color {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
+.graph-legend {
+  font-size : 14px;
+}
+
+.s-legend-color.refereed {
+  background-color: $refereed;
+}
+
+.s-legend-color.nonrefereed {
+  background-color: $nonrefereed;
+}
+
+.zoomable-graph {
+  .apply {
+    margin-top: 10px;
+  }
+}
+
+
+/* Author network css */
+
+//group circle color vars
+$group-circle-default : lighten($brand-info, 20%);
+$group-circle-hover : saturate(darken($group-circle-default, 10%), 20%);
+$group-circle-active : lighten($brand-warning, 10%);
+
+
+.s-selected-items-container {
+  position : relative;
+  left : -4%;
+}
+
+.s-control-row {
+  border-bottom: 1px solid $gray-lighter;
+  padding-bottom: 15px;
+}
+
+.details-container .line {
+  stroke-opacity: .8
+}
+
+.details-container text {
+  font-size: 20px;
+}
+
+.s-detail-top-row {
+  padding : 3%;
+  position: absolute;
+  right: 2px;
+}
+
+.load-author-network {
+  margin-top: 20px;
+}
+
+.s-vis-center-col {
+
+  div.one {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+
+  }
+  div.two {
+    width: 50%;
+    display: inline-block;
+  }
+  div.three {
+    width: 19%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  margin-bottom: 8px;
+}
+
+.center-container {
+  fill: white;
+}
+
+.node-path {
+  cursor: pointer;
+  fill-opacity: .8;
+  transition : all, .3s, linear;
+}
+.node-path:hover {
+  fill-opacity: 1;
+}
+.selected-node {
+  stroke-width: 2.5px;
+  stroke: $gray-dark;
+  fill-opacity: .6;
+}
+
+.node-label {
+  cursor: pointer;
+}
+.node-label:hover {
+  fill: lighten($brand-primary, 10%);
+}
+
+.selected-label {
+  fill: saturate($brand-primary-faded, 90%);
+}
+
+.author-sunburst {
+  position: relative;
+}
+
+.link {
+  stroke: $gray-dark;
+  stroke-opacity: .4;
+  fill: none;
+  cursor: pointer;
+  transition: all, .3s, linear;
+}
+
+.author .link:hover {
+    stroke: darken($brand-warning, 10%);
+    stroke-width: 6px;
+  }
+
+.paper {
+  .link:hover {
+    stroke-opacity: .9;
+  }
+
+  .link-container {
+    display: block;
+  }
+}
+
+.link-background {
+  fill: hsla(0, 0%, 100%, .8);
+}
+
+.author {
+  .link-container {
+    display: none;
+  }
+}
+
+.selected-link {
+  stroke: darken($brand-warning, 10%);
+  stroke-width: 2px;
+}
+
+.linked-label {
+  fill: darken($brand-warning, 15%);
+}
+
+.s-network-filter-container, .s-network-metadata form {
+  @extend .clearfix;
+  display : none;
+}
+
+//only show on search results page
+.s-results-page-layout .s-network-filter-container , .s-results-page-layout .s-network-metadata form {
+  display : block;
+}
+
+.s-connector-node {
+    text-anchor: middle;
+    font-size: 25px;
+    cursor: move;
+}
+
+.vis-close {
+  @extend .close;
+  float: none;
+  margin-left: 5%;
+}
+
+.s-view-in-ads-button {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.s-network-control-panel {
+  padding-left: 2%;
+  margin-bottom: 11px;
+  height: 15px;
+  input[type=checkbox]{
+    margin: 25px 0;
+  }
+}
+
+.s-network-container {
+  .axis  {
+    stroke-width: 2px;
+  }
+}
+
+.s-network-widget {
+  @media (min-width: $screen-md-min) {
+    min-height: 1200px;
+    .time-series-container {
+      .line {
+        stroke-width: 4px;
+      }
+    }
+  }
+
+  .s-filter-names-container {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1% 1% 0 0;
+    padding: 1%;
+    width: 86%;
+    height: 57px;
+    scroll: auto;
+    background-color: white;
+    border: 1px solid $gray-lighter;
+    border-radius: $border-radius-large;
+  }
+
+  .s-filter-buttons-container {
+    display: inline-block;
+    margin-top: 15px;
+    width: 10%;
+    div {
+      margin-bottom: 10px;
+    }
+  }
+
+  .author-detail-header {
+    position: relative;
+    h5 {
+      padding-bottom: 5px;
+    }
+ }
+
+
+.paper {
+  //this is a messy way to override :(
+  .node-path {
+    fill-opacity:1;
+  }
+
+  .s-network-detail-container {
+    border-left: 1px solid $gray-lighter;
+    min-height: 600px;
+    border-radius: none;
+    .instructions {
+      font-size: 24px;
+      margin-top: 150px;
+      text-align: center;
+    }
+  }
+
+  .s-network-detail-container {
+    display:inline-block;
+    width: 44% !important;
+    vertical-align: top;
+    button {
+      margin-bottom: 10px;
+    }
+  }
+
+  .s-network-graph-div {
+    margin-left: 0;
+  }
+
+  .s-group-content{
+    margin-left: 2%;
+    max-height: 700px;
+    overflow: auto;
+
+    .s-top-papers {
+      max-height: 250px;
+      overflow: auto;
+    }
+  }
+}
+
+}
+
+.paper-network-labels{
+  opacity:.8;
+  cursor: pointer;
+}
+
+.s-group-title {
+  padding: 1%;
+  margin-bottom: 30px;
+}
+
+.s-network-widget .icon-help {
+  font-size : 2em;
+}
+
+.s-network-rows {
+  width: 67px;
+  display:inline;
+}
+
+.s-network-metadata, .s-network-filter-container {
+  padding: 1%;
+  height: 100px;
+}
+
+.author-detail-header{
+  padding : 10px 0;
+
+  .filter-add, .filter-remove {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+  }
+}
+
+
+/* BUBBLE CHART LESS*/
+
+.paper-circle {
+  fill-opacity:.4;
+  fill: $gray-dark;
+}
+
+.paper-circle:hover{
+  fill-opacity: .8;
+  cursor: pointer;
+}
+
+.paper-circle.selected{
+  fill-opacity: .9;
+}
+
+.paper-circle.tracked{
+
+  stroke-width: 4px;
+  stroke: #000;
+  stroke-opacity: 1;
+}
+
+.s-bubble-graph-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 50%;
+  vertical-align: middle;
+  overflow:auto;
+}
+
+.s-bubble-chart-svg {
+
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+.x-axis, .y-axis {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+  text {
+    stroke :none;
+    fill: $gray-darker;
+  }
+}
+
+.d3-tooltip {
+  display: none;
+  background-color: #fff;
+  box-shadow : 2px 2px 3px $gray-dark;
+  border: 2px solid $gray-light;
+  color: $gray-dark;
+  font-weight: 300;
+  width: 240px;
+  min-height: 20px;
+  font-size: 13px;
+  border-radius : 8px;
+  position:absolute;
+  z-index: 2;
+  padding: 1%;
+  h5 {
+    margin: 2px;
+    font-size: 13px;
+  }
+  z-index: $z-index-max;
+}
+
+.scale-choice {
+  fill: #fff;
+  stroke : #000;
+  stroke-width: 1px;
+}
+
+.scale-choice:hover {
+  cursor:pointer;
+}
+
+.scale-choice.selected {
+  fill : $gray;
+}
+
+.axis-title {
+  font-size: 20px;
+}
+
+.s-bubble-chart label {
+  margin: 0;
+  font-weight: 400;
+}
+.journal-name-key rect {
+  opacity: .6;
+}
+
+.journal-name-key text {
+  fill: $gray;
+}
+
+rect.selection {
+  stroke : $gray-dark;
+  stroke-dasharray: 5px;
+  stroke-width: 4px;
+  stroke-opacity : 1;
+  fill: hsla(0,0,0, .2);
+}
+
+.s-bubble-chart {
+
+  padding-left: 2%;
+
+  .s-controls {
+    font-size: 14px;
+    background-color: $gray-lighter;
+    width: 90%;
+
+    h6 {
+      margin-top: 0;
+      margin-bottom: 1%;
+    }
+
+    button {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    div {
+      width: 33%;
+      font-weight: 300;
+      padding: 1%;
+      display: inline-block;
+      vertical-align: top;
+      min-height: 120px;
+      position:relative;
+    }
+  }
+}
+
+.s-bubble-label-container{
+
+  position: relative;
+  padding-top: 10px;
+  z-index: $z-index-1;
+  @extend .clearfix;
+  img {
+    width: 100%;
+  }
+  div {
+    background: #fff;
+    margin: 0 15px;
+    border-radius: 6px;
+    border: 4px solid $gray-lighter;
+    display:inline-block;
+    vertical-align: top;
+    width: 14%;
+    cursor: pointer;
+  }
+
+  div:hover{
+    border: 4px solid lighten($brand-warning, 25%);
+  }
+
+  div.active {
+    border: 4px solid $brand-warning;
+  }
+}
+
+.journal-name-key text, .journal-name-key rect {
+  cursor : pointer;
+}
+
+text.journal-selected{
+  text-decoration : underline;
+  font-weight: bold;
+}
+
+.s-svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}

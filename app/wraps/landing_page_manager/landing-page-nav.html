@@ -1,0 +1,14 @@
+
+<nav class="s-landing-tabs">
+    {{#each tabs}}
+            <li class="landing-tab {{#if this.isSelected}} active {{/if}}">
+                <a href="{{this.path}}" data-widget-id="{{this.id}}">
+                    {{this.title}}
+                    <span class="hidden-xs">
+                        Form
+                    </span>
+                </a>
+            </li>
+    {{/each}}
+
+</nav>

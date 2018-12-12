@@ -1,0 +1,34 @@
+/*
+A place for any variables that might be of interest to more than
+one widget or view
+*/
+
+$border-default-color: #D8D8D8;
+$border-default : 1px solid $border-default-color;
+$border-light-color: #dddddd;
+$border-light-default: 1px solid $border-light-color;
+$darker-background : $gray-lighter;
+$default-box-shadow-color : darken($body-bg, 15%);
+
+
+/* Z Index Values */
+
+$z-index-negative : -1;
+$z-index-0 : 0;
+$z-index-1 : 1;
+$z-index-2 : 2;
+$z-index-3 : 3;
+$z-index-4 : 4;
+$z-index-max : 5;
+
+
+/* Colors to represent refereed and nonrefereed items */
+
+$refereed  : lighten($brand-primary-faded, 5%);
+$nonrefereed : lighten($brand-success, 15%);
+$vis-color-3 : $brand-warning;
+$vis-color-4 : $brand-danger;
+
+
+$subtle-brand-primary : desaturate($brand-primary, 40%);
+$disabled-color : mix($gray-light, $gray-lighter);

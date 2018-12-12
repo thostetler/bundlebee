@@ -1,0 +1,99 @@
+
+define([
+  'underscore',
+  'backbone',
+  'react',
+  'react-dom',
+  'react-redux',
+  'components/analytics',
+  'components/api_query',
+  'components/api_request',
+  'components/api_targets',
+  'widgets/base/base_widget',
+  './redux/configure-store',
+  './redux/modules/api',
+  './redux/modules/ui',
+  './containers/app'
+], function (
+  _, Backbone, React, ReactDOM, ReactRedux, analytics, ApiQuery, ApiRequest, ApiTargets,
+  BaseWidget, configureStore, api, ui, App
+) {
+  const View = Backbone.View.extend({
+    initialize: function (options) {
+      // provide this with all the options passed in
+      _.assign(this, options);
+    },
+    render: function () {
+      // create provider component, that passes the store to <App>
+      ReactDOM.render(
+        <ReactRedux.Provider store={this.store}>
+          <App />
+        </ReactRedux.Provider>,
+        this.el
+      );
+      return this;
+    },
+    destroy: function () {
+      // on destroy, make sure the React DOM is unmounted
+      ReactDOM.unmountComponentAtNode(this.el);
+    }
+  });
+
+  const Widget = BaseWidget.extend({
+    initialize: function () {
+      // create the store, using the configurator
+      this.store = configureStore(this);
+
+      // create the view, passing in store
+      this.view = new View({ store: this.store });
+    },
+    defaultQueryArguments: {},
+    activate: function (beehive) {
+      const { dispatch } = this.store;
+      this.setBeeHive(beehive);
+      this.activateWidget();
+      this.attachGeneralHandler(this.onApiFeedback);
+
+      const pubsub = this.getPubSub();
+      pubsub.subscribe(pubsub.DISPLAY_DOCUMENTS, function (apiQuery) {
+        if (apiQuery && _.isFunction(apiQuery.toJSON)) {
+          dispatch(api.displayDocuments(apiQuery.toJSON()));
+        } else {
+          dispatch(ui.setError('did not receive query'));
+        }
+      });
+      pubsub.subscribe(pubsub.DELIVERING_RESPONSE, function (apiResponse) {
+        if (apiResponse && _.isFunction(apiResponse.toJSON)) {
+          dispatch(api.processResponse(apiResponse.toJSON()));
+        } else {
+          dispatch(ui.setError('did not receive response from server'));
+        }
+      });
+    },
+    dispatchRequest: function (options) {
+      const query = new ApiQuery(options);
+      BaseWidget.prototype.dispatchRequest.call(this, query);
+    },
+    composeRequest: function (apiQuery) {
+      const { bibcode } = this.store.getState().api;
+      return new ApiRequest({
+        target: `${ApiTargets.RESOLVER}/${bibcode}/associated`,
+        query: new ApiQuery()
+      });
+    },
+    emitAnalytics: function (data) {
+      analytics('send', 'event', 'interaction', 'associated-link-followed', {
+        target: 'associated',
+        url: data.rawUrl
+      });
+    },
+    onApiFeedback: function (feedback) {
+      const { dispatch } = this.store;
+      if (_.isPlainObject(feedback.error)) {
+        dispatch(ui.setError(feedback.error));
+      }
+    }
+  });
+
+  return Widget;
+});

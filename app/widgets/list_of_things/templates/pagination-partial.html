@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-sm-12 page-loading" style="text-align:center">
+            {{#if loading}}
+            <i class="icon-loading"></i>&nbsp;Loading more papers...
+            {{/if}}
+    </div>
+</div>
+{{#unless query}}
+{{#unless error}}
+<div class="row">
+    {{#if pageData}}
+    <div class="col-sm-12 pagination-controls s-pagination-controls">
+        <div class="col-xs-5 per-page-container">
+            {{#if pageData}}
+            <div class="form-group">
+              <label for="per-page-select" class="col-xs-4 control-label" style="line-height: 32px;">Per Page</label>
+              <div class="col-xs-8 col-sm-5">
+                <select name="per-page-select" id="per-page-select" class="form-control">
+                  <option value="25" {{#compare pageData.perPage 25}}selected{{/compare}}>25</option>
+                  <option value="50" {{#compare pageData.perPage 50}}selected{{/compare}}>50</option>
+                  <option value="100" {{#compare pageData.perPage 100}}selected{{/compare}}>100</option>
+                  <option value="200" {{#compare pageData.perPage 200}}selected{{/compare}}>200</option>
+                  <option value="500" {{#compare pageData.perPage 500}}selected{{/compare}}>500</option>
+                </select>
+              </div>
+            </div>
+            {{/if}}
+        </div>
+        <div class="col-xs-6">
+            <nav>
+                <ul class="pager">
+                    <li class="{{#unless pageData.previousPossible}} disabled {{/unless}}"><a href="#" class="page-control previous-page"><i class="fa fa-chevron-circle-left"></i> prev</a></li>
+                    <input type="text" value="{{pageData.currentPage}}" class="form-control page-control" style="display:inline-block;width:60px"> of {{pageData.totalPages}}
+                    <li class="{{#unless pageData.nextPossible}} disabled {{/unless}}"><a href="#" class="page-control next-page">next <i class="fa fa-chevron-circle-right"></i></a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+    {{/if}}
+    <button class="btn btn-link" id="backToTopBtn">Top <i class="fa fa-caret-up"></i></button>
+</div>
+{{/unless}}
+{{/unless}}
