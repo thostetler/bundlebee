@@ -70,9 +70,10 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              config: {
-                path: path.join(__dirname, 'app/styles/postcss.config.js')
-              }
+              plugins: [
+                require('postcss-import'),
+                require('cssnano')({ preset: 'default' })
+              ]
             }
           },
           'sass-loader'

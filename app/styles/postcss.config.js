@@ -3,6 +3,6 @@ module.exports = {
   plugins: {
     'postcss-import': {},
     'postcss-preset-env': {},
-    'cssnano': false
+    'cssnano': true
   }
 }

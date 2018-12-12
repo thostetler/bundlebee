@@ -13,6 +13,7 @@ $fa-font-path: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts'
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
 /* Import stuff that should be accessible by modules below */
+@import './vendor/jquery-ui.theme.min.css';
 @import 'ads-sass/ads-variables';
 @import 'ads-sass/ads-mixins';
 @import 'ads-sass/animations';
